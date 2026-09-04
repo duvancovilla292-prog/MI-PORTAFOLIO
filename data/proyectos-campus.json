@@ -75,6 +75,20 @@
     "descripcion": "Proyecto analítico y de diseño de bases de datos relacionales enfocado en la librería. Implementa un proceso completo de normalización hasta la Tercera Forma Normal (3FN), separando entidades clave como Clientes, Autores, Editoriales, Categorías, Libros, Pedidos, Detalles de Pedido y Pagos, junto con el modelado conceptual de Entidad-Relación y diagramas UML.",
     "imagen": "https://cdn.vectorstock.com/i/1000v/43/69/icon-backend-vector-56984369.jpg",
     "repo": "https://github.com/duvancovilla292-prog/bakend-Tienda-de-libros"
+  },
+  {
+    "id": "campus-12",
+    "nombre": "Automatizaciones con n8n y Agentes de IA",
+    "descripcion": "Colección de flujos de trabajo avanzados en n8n que abarcan integraciones con APIs externas (clima, TRM), webhooks HTTP GET/POST, mesa de ayuda con Google Sheets y desarrollo de Agentes de Inteligencia Artificial basados en Gemini, memoria conversacional persistente por sesión y herramientas ejecutables (Calculator, HTTP Requests).",
+    "imagen": "https://www.turbodocx.com/images/newsroom/n8n.png",
+    "repo": "https://github.com/duvancovilla292-prog/Clases-n8n"
+  },
+  {
+    "id": "campus-13",
+    "nombre": "TutorBot — Sistema Inteligente de Tutorías Académicas",
+    "descripcion": "Plataforma automatizada en n8n y Telegram desarrollada en equipo (Keiler Sebastian Serrano Rosales, Duvan Steven Covilla Rolón y Javier Alfonso Suárez Duarte). Gestiona el ciclo completo de tutorías académicas mediante un enrutador inteligente, registro de usuarios, IA (Google Gemini) para interpretar procesamiento de lenguaje natural en fechas/horarios, asignación automática con tutores, consulta/cancelación de citas, reporte de incidencias y recordatorios automáticos conectados a Google Sheets y notificaciones por correo.",
+    "imagen": "https://www.turbodocx.com/images/newsroom/n8n.png",
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-n8n"
   }
 
 ]

@@ -1,30 +1,16 @@
 [
   {
-    "id": "frontend-1",
+    "id": "personal-1",
     "nombre": "Morse Ciel",
     "descripcion": "Single Page Application (SPA) en Vanilla JS para el aprendizaje algorítmico del código Morse. Integra Web Audio API para síntesis de sonido nativa sin dependencias externas.",
     "imagen": "https://github.com/user-attachments/assets/073b4980-1a01-41a9-ac50-17dc8868eee5",
     "repo": "https://github.com/duvancovilla292-prog/Morce-Ciel"
   },
   {
-    "id": "logic-1",
-    "nombre": "Sistema de Gestión de Parqueadero",
-    "descripcion": "Algoritmo de control de aforo e inventario desarrollado en PSeInt. Estructurado con funciones modulares para la validación matemática de capacidad y control de flujo.",
-    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ86mL4I8k2faVlh0kOvWa0qvCrX6yUdvwdIPFlupymCJHmQCBAELwaulPx&s=10",
-    "repo": "https://github.com/ciel-covilla/sistema-parqueadero"
-  },
-  {
-    "id": "campus-4",
-    "nombre": "Facturación POS con Descuentos Especiales",
-    "descripcion": "Evolución del sistema POS en Python. Incorpora módulo de descuentos (0-50%), gestión automatizada de almacenamiento en subdirectorios mediante la librería nativa 'os' y trazabilidad financiera extendida en CSV.",
-    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY_fkhQ61ZJUmvf0Hf1DTdkuJMJMb-yETNK9A2ChksA&s=10",
-    "repo": "https://github.com/duvancovilla292-prog/evaluacion"
-  },
-  {
-    "id": "campus-4",
-    "nombre": "Facturación POS con Descuentos Especiales",
-    "descripcion": "Evolución del sistema POS en Python. Incorpora módulo de descuentos (0-50%), gestión automatizada de almacenamiento en subdirectorios mediante la librería nativa 'os' y trazabilidad financiera extendida en CSV.",
-    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY_fkhQ61ZJUmvf0Hf1DTdkuJMJMb-yETNK9A2ChksA&s=10",
-    "repo": "https://github.com/duvancovilla292-prog/evaluacion"
+    "id": "personal-2",
+    "nombre": "Ciel Bot Místico",
+    "descripcion": "Bot modular para WhatsApp desarrollado en Python con arquitectura desacoplada. Integra economía virtual, sistema Gacha de colección de personajes, reacciones interactivas de anime y motor de descargas multimedia mediante yt-dlp.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTepOAUvsYszrEF9xwx19ECERIldWA3YQIG4PqDBqxrQ&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-Ciel"
   }
 ]
