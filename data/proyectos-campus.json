@@ -40,5 +40,41 @@
     "descripcion": "Plataforma de comercio electrónico orientada a la promoción de un estilo de vida consciente y respetuoso con el medio ambiente. Cuenta con catálogo dinámico, diseño responsivo y arquitectura CSS modular.",
     "imagen": "https://play-lh.googleusercontent.com/r78A214-lqCykzf5Zlq41YtDKaJR6letRDJ6l7iTzdv3RmpyEHdMidGYHAO3WnsROC63cKdQhiUu5q29EbrKP1I",
     "repo": "https://github.com/duvancovilla292-prog/Proyecto-HTML-Covilla"
-}
+  },
+  {
+    "id": "campus-7",
+    "nombre": "Prácticas y Clases de JavaScript",
+    "descripcion": "Repositorio dedicado al aprendizaje y desarrollo con JavaScript. Contiene ejercicios prácticos, manipulación del DOM, lógica algorítmica y proyectos integrales con HTML5 y CSS3.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFr0OnsqNMyvLdMPa9SWE-3pC-FnigUgi0YN9Qp649puGkr_UvcG0vQzg&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/js-firts"
+  },
+  {
+    "id": "campus-8",
+    "nombre": "EventPass - Plataforma de Gestión y Venta de Entradas",
+    "descripcion": "Aplicación web interactiva de gestión y venta de entradas a eventos musicales y espectáculos. Cuenta con catálogo dinámico, filtros en tiempo real, carrito de compras con persistencia en LocalStorage, programación asíncrona (Fetch API), Web Components, eventos personalizados y un panel administrativo completo.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFr0OnsqNMyvLdMPa9SWE-3pC-FnigUgi0YN9Qp649puGkr_UvcG0vQzg&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-javascript"
+  },
+  {
+    "id": "campus-9",
+    "nombre": "EventPass - Módulo de Gestión Dinámica de Ciudades (Evaluación)",
+    "descripcion": "Extensión avanzada para EventPass enfocada en la evaluación práctica. Implementa un CRUD completo de ciudades operativas integrado con LocalStorage, actualización dinámica de selects en tiempo real para clientes y administradores, inyección programática de estilos y modales interactivos con JavaScript moderno (ES6).",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFr0OnsqNMyvLdMPa9SWE-3pC-FnigUgi0YN9Qp649puGkr_UvcG0vQzg&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/evaluacion-javascript"
+  },
+  {
+    "id": "campus-10",
+    "nombre": "Express Bite - Ecosistema Comercial y Panel de Inteligencia de Negocio",
+    "descripcion": "Plataforma web orientada a la gestión comercial y analítica de datos en tiempo real. Integra una tienda pública con carrito modal y pedidos por WhatsApp, junto con un panel administrativo avanzado que calcula KPIs de ventas, márgenes de rentabilidad, alertas de inventario crítico y proyecciones de demanda mediante JavaScript moderno (ES6).",
+    "imagen": "https://pbs.twimg.com/profile_images/1061244639703982080/xXTj9vj3_400x400.jpg",
+    "repo": "https://github.com/duvancovilla292-prog/IA-Javascript"
+  },
+  {
+    "id": "campus-11",
+    "nombre": "Backend Tienda de Libros - Normalización y Modelado de Bases de Datos",
+    "descripcion": "Proyecto analítico y de diseño de bases de datos relacionales enfocado en la librería. Implementa un proceso completo de normalización hasta la Tercera Forma Normal (3FN), separando entidades clave como Clientes, Autores, Editoriales, Categorías, Libros, Pedidos, Detalles de Pedido y Pagos, junto con el modelado conceptual de Entidad-Relación y diagramas UML.",
+    "imagen": "https://cdn.vectorstock.com/i/1000v/43/69/icon-backend-vector-56984369.jpg",
+    "repo": "https://github.com/duvancovilla292-prog/bakend-Tienda-de-libros"
+  }
+
 ]
