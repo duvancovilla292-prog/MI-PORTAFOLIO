@@ -1,0 +1,16 @@
+[
+  {
+    "id": "personal-1",
+    "nombre": "Gestor de tareas",
+    "descripcion": "Aplicación personal para organizar tareas diarias con almacenamiento local y filtros.",
+    "imagen": "assets/img/personal-1.jpg",
+    "repo": "https://github.com/tu-usuario/gestor-tareas"
+  },
+  {
+    "id": "personal-2",
+    "nombre": "Clima en tiempo real",
+    "descripcion": "Proyecto personal que consulta una API del clima y muestra el pronóstico por ciudad.",
+    "imagen": "assets/img/personal-2.jpg",
+    "repo": "https://github.com/tu-usuario/clima-app"
+  }
+]

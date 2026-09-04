@@ -1,0 +1,23 @@
+[
+  {
+    "id": "campus-1",
+    "nombre": "Landing page semántica",
+    "descripcion": "Actividad de campus enfocada en estructura HTML semántica y accesibilidad básica.",
+    "imagen": "assets/img/campus-1.jpg",
+    "repo": "https://github.com/tu-usuario/landing-semantica"
+  },
+  {
+    "id": "campus-2",
+    "nombre": "Maquetación responsive",
+    "descripcion": "Ejercicio de campus sobre diseño adaptable con Flexbox y Grid para distintos dispositivos.",
+    "imagen": "assets/img/campus-2.jpg",
+    "repo": "https://github.com/tu-usuario/maquetacion-responsive"
+  },
+  {
+    "id": "campus-3",
+    "nombre": "Consumo de API",
+    "descripcion": "Práctica de campus consumiendo una API pública con JavaScript y renderizado dinámico.",
+    "imagen": "assets/img/campus-3.jpg",
+    "repo": "https://github.com/tu-usuario/consumo-api"
+  }
+]

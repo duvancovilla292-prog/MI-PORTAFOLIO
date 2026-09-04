@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mi Portafolio</title>
+<meta name="description" content="Portafolio personal — proyectos de campus y proyectos personales." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#inicio" class="logo">portafolio<span class="dot">.</span></a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#portafolio">Mi portafolio</a>
+      <a href="#personales">Proyectos personales</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="btnLogin" class="btn btn-ghost" type="button">Iniciar sesión</button>
+      <div id="adminBar" class="admin-bar" hidden>
+        <span class="admin-pill">Modo admin</span>
+        <button id="btnLogout" class="btn btn-ghost btn-small" type="button">Salir</button>
+      </div>
+    </div>
+
+    <button id="btnMenu" class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav id="main-nav-mobile" class="mobile-nav" aria-label="Navegación móvil" hidden>
+    <a href="#inicio">Inicio</a>
+    <a href="#portafolio">Mi portafolio</a>
+    <a href="#personales">Proyectos personales</a>
+  </nav>
+</header>
+
+<main id="contenido">
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-photo">
+        <img id="perfilFoto" src="" alt="Foto de perfil" />
+        <button class="edit-btn" data-edit="perfil" hidden>Editar perfil</button>
+      </div>
+      <div class="hero-text">
+        <p class="eyebrow-line" id="perfilUbicacion"></p>
+        <h1 id="perfilNombre">—</h1>
+        <p class="hero-role" id="perfilRol">—</p>
+        <p class="hero-desc" id="perfilDescripcion">—</p>
+        <div class="hero-links" id="perfilRedes"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MI PORTAFOLIO -->
+  <section id="portafolio" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Mi portafolio</h2>
+        <p>Proyectos y actividades desarrolladas durante mi paso por campus.</p>
+        <button class="btn btn-outline edit-btn" data-edit="campus" hidden>+ Agregar proyecto</button>
+      </div>
+      <div id="campusGrid" class="card-grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS PERSONALES -->
+  <section id="personales" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Proyectos personales</h2>
+        <p>Cosas que he construido por mi cuenta, para aprender y experimentar.</p>
+        <button class="btn btn-outline edit-btn" data-edit="personal" hidden>+ Agregar proyecto</button>
+      </div>
+      <div id="personalGrid" class="card-grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="anioActual"></span> <span id="footerNombre">Mi Portafolio</span>. Hecho con HTML, CSS y JavaScript.</p>
+    <div class="footer-links" id="footerRedes"></div>
+  </div>
+</footer>
+
+<!-- MODAL: LOGIN -->
+<dialog id="loginModal" class="modal">
+  <form id="loginForm" method="dialog" class="modal-card">
+    <h3>Iniciar sesión</h3>
+    <p class="modal-sub">Acceso para administrar el contenido del sitio.</p>
+    <label>
+      Usuario
+      <input type="text" id="loginUser" name="usuario" autocomplete="username" required />
+    </label>
+    <label>
+      Contraseña
+      <input type="password" id="loginPass" name="password" autocomplete="current-password" required />
+    </label>
+    <p id="loginError" class="form-error" hidden>Usuario o contraseña incorrectos.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- MODAL: EDITAR PERFIL -->
+<dialog id="perfilModal" class="modal">
+  <form id="perfilForm" method="dialog" class="modal-card">
+    <h3>Editar perfil</h3>
+    <label>Nombre <input type="text" id="fNombre" required /></label>
+    <label>Rol / título <input type="text" id="fRol" required /></label>
+    <label>Ubicación <input type="text" id="fUbicacion" /></label>
+    <label>Descripción <textarea id="fDescripcion" rows="4" required></textarea></label>
+    <label>URL de la foto <input type="text" id="fFoto" placeholder="assets/img/perfil.jpg" /></label>
+    <label>GitHub <input type="text" id="fGithub" /></label>
+    <label>LinkedIn <input type="text" id="fLinkedin" /></label>
+    <label>Email <input type="text" id="fEmail" /></label>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- MODAL: EDITAR / CREAR PROYECTO -->
+<dialog id="proyectoModal" class="modal">
+  <form id="proyectoForm" method="dialog" class="modal-card">
+    <h3 id="proyectoModalTitulo">Proyecto</h3>
+    <input type="hidden" id="pId" />
+    <input type="hidden" id="pTipo" />
+    <label>Nombre <input type="text" id="pNombre" required /></label>
+    <label>Descripción <textarea id="pDescripcion" rows="3" required></textarea></label>
+    <label>URL de la imagen <input type="text" id="pImagen" placeholder="assets/img/proyecto.jpg" /></label>
+    <label>URL del repositorio (GitHub) <input type="text" id="pRepo" required /></label>
+    <div class="modal-actions modal-actions-split">
+      <button type="button" id="btnEliminarProyecto" class="btn btn-danger" hidden>Eliminar</button>
+      <div>
+        <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
