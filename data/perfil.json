@@ -1,0 +1,12 @@
+{
+  "nombre": "Duvan Steven Covilla Rolon",
+  "rol": "Estudiante de Desarrollo de Software",
+  "descripcion": "Estudiante de desarrollo de software en Campuslands, apasionado por la programación, la automatización y la ciencia.",
+  "foto": "IMG/yo.jpeg",
+  "ubicacion": "Cúcuta, Colombia",
+  "redes": {
+    "github": "https://github.com/duvancovilla292-prog",
+    "linkedin": "",
+    "email": "duvancovilla292@gmail.com"
+  }
+}

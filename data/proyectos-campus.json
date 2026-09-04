@@ -1,0 +1,44 @@
+[
+  {
+    "id": "campus-1",
+    "nombre": "Sistema de Gestión de Parqueadero",
+    "descripcion": "Algoritmo de control de aforo e inventario desarrollado en PSeInt. Estructurado con funciones modulares para la validación matemática de capacidad y control de flujo.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ86mL4I8k2faVlh0kOvWa0qvCrX6yUdvwdIPFlupymCJHmQCBAELwaulPx&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/sistema-parqueadero-evaluacion-psint"
+  },
+  {
+    "id": "campus-2",
+    "nombre": "Sistema de Carrito de Compras POS",
+    "descripcion": "Script interactivo en consola (Python 3.10+) para simulación de punto de venta. Emplea diccionarios para consultas de inventario O(1) y listas para la gestión de sesión en memoria.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY_fkhQ61ZJUmvf0Hf1DTdkuJMJMb-yETNK9A2ChksA&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/trabajo-clase"
+  },
+  {
+    "id": "campus-3",
+    "nombre": "Sistema de Gestión y Facturación para Restaurantes",
+    "descripcion": "Software POS estructurado modularmente en Python. Implementa persistencia de datos relacional mediante manipulación nativa de archivos CSV para control de inventario, clientes, mesas y generación de reportes transaccionales.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY_fkhQ61ZJUmvf0Hf1DTdkuJMJMb-yETNK9A2ChksA&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto"
+  },
+  {
+    "id": "campus-4",
+    "nombre": "Facturación POS con Descuentos Especiales",
+    "descripcion": "Evolución del sistema POS en Python. Incorpora módulo de descuentos (0-50%), gestión automatizada de almacenamiento en subdirectorios mediante la librería nativa 'os' y trazabilidad financiera extendida en CSV.",
+    "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAY_fkhQ61ZJUmvf0Hf1DTdkuJMJMb-yETNK9A2ChksA&s=10",
+    "repo": "https://github.com/duvancovilla292-prog/evaluacion"
+  },
+  {
+    "id": "campus-5",
+    "nombre": "Práctica Colaborativa Git/GitHub",
+    "descripcion": "Repositorio de iniciación a Git en equipo. Contiene scripts introductorios en Python con exploración de manejo de excepciones, bucles for, operaciones matemáticas (cálculo de Phi) y manipulación básica de strings.",
+    "imagen": "https://www.trecebits.com/wp-content/uploads/2019/11/GITHUB.jpg",
+    "repo": "https://github.com/duvancovilla292-prog/trabajo-github"
+  },
+  {
+    "id": "campus-6",
+    "nombre": "EcoMarket - Plataforma Web Sostenible",
+    "descripcion": "Plataforma de comercio electrónico orientada a la promoción de un estilo de vida consciente y respetuoso con el medio ambiente. Cuenta con catálogo dinámico, diseño responsivo y arquitectura CSS modular.",
+    "imagen": "https://play-lh.googleusercontent.com/r78A214-lqCykzf5Zlq41YtDKaJR6letRDJ6l7iTzdv3RmpyEHdMidGYHAO3WnsROC63cKdQhiUu5q29EbrKP1I",
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-HTML-Covilla"
+}
+]

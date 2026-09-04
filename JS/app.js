@@ -7,12 +7,15 @@
   const ADMIN_USER = "Ciel";
   const ADMIN_PASS = "123456"; // Demo / temporal. Cambiar antes de producción real.
 
-  const LS_KEYS = {
-    perfil: "portafolio:perfil",
-    campus: "portafolio:campus",
-    personal: "portafolio:personal",
-  };
   const SS_ADMIN = "portafolio:isAdmin";
+
+  // Nombres de archivo reales dentro de /data, usados solo para nombrar
+  // la descarga cuando el admin guarda cambios (ver descargarJSON).
+  const FILE_NAMES = {
+    perfil: "perfil.json",
+    campus: "proyectos-campus.json",
+    personal: "proyectos-personales.json",
+  };
 
   const DATA_URLS = {
     perfil: "data/perfil.json",
@@ -28,51 +31,64 @@
   };
 
   /* ============================================================
-     HELPERS DE PERSISTENCIA
-     Los datos "reales" viven en /data/*.json. Como este es un
-     sitio estático (GitHub Pages, sin backend), las ediciones
-     hechas desde el modo admin se guardan en localStorage del
-     navegador y sobreescriben el JSON original solo en esa
-     máquina/navegador. Para que un cambio sea permanente para
-     todo el mundo, hay que editar los archivos JSON del repo.
+     PERSISTENCIA: SOLO JSON, SIN localStorage
+     Este sitio es estático (GitHub Pages, sin backend), así que el
+     navegador no puede escribir directamente en los archivos del
+     repositorio. Por eso, cuando el admin guarda un cambio:
+       1) se actualiza la vista en memoria (para ver el resultado
+          de inmediato, mientras dura la sesión/pestaña),
+       2) se descarga el archivo .json actualizado,
+     y el paso final lo haces tú: reemplazar ese archivo dentro de
+     /data en tu proyecto/repo y subir el cambio (commit + push).
+     No se usa localStorage ni sessionStorage para guardar datos.
      ============================================================ */
-  function loadLocal(key) {
+  function descargarJSON(nombreArchivo, datos) {
+    const contenido = JSON.stringify(datos, null, 2);
+    const blob = new Blob([contenido], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = nombreArchivo;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  // Si el sitio se abre con doble clic (file://) el navegador bloquea el
+  // fetch() a los JSON por CORS. En ese caso, usamos como respaldo el JSON
+  // que va embebido en el propio index.html (ver <script type="application/json">).
+  // Cuando el sitio corre por un servidor real (local o GitHub Pages), siempre
+  // se usa el archivo /data/*.json vía fetch, que es la fuente de verdad.
+  async function fetchJSON(url, fallbackId) {
     try {
-      const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : null;
-    } catch {
-      return null;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`No se pudo cargar ${url}`);
+      return await res.json();
+    } catch (err) {
+      const fallbackEl = fallbackId && document.getElementById(fallbackId);
+      if (fallbackEl) {
+        try {
+          console.warn(`No se pudo hacer fetch de ${url} (¿abriste el archivo con doble clic?). Usando datos de respaldo embebidos.`);
+          return JSON.parse(fallbackEl.textContent);
+        } catch {
+          /* sigue al throw de abajo */
+        }
+      }
+      throw err;
     }
-  }
-
-  function saveLocal(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
-  async function fetchJSON(url) {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`No se pudo cargar ${url}`);
-    return res.json();
   }
 
   async function cargarDatos() {
     const [perfilRemoto, campusRemoto, personalRemoto] = await Promise.allSettled([
-      fetchJSON(DATA_URLS.perfil),
-      fetchJSON(DATA_URLS.campus),
-      fetchJSON(DATA_URLS.personal),
+      fetchJSON(DATA_URLS.perfil, "perfil-data-fallback"),
+      fetchJSON(DATA_URLS.campus, "campus-data-fallback"),
+      fetchJSON(DATA_URLS.personal, "personal-data-fallback"),
     ]);
 
-    state.perfil =
-      loadLocal(LS_KEYS.perfil) ||
-      (perfilRemoto.status === "fulfilled" ? perfilRemoto.value : null);
-
-    state.campus =
-      loadLocal(LS_KEYS.campus) ||
-      (campusRemoto.status === "fulfilled" ? campusRemoto.value : []);
-
-    state.personal =
-      loadLocal(LS_KEYS.personal) ||
-      (personalRemoto.status === "fulfilled" ? personalRemoto.value : []);
+    state.perfil = perfilRemoto.status === "fulfilled" ? perfilRemoto.value : null;
+    state.campus = campusRemoto.status === "fulfilled" ? campusRemoto.value : [];
+    state.personal = personalRemoto.status === "fulfilled" ? personalRemoto.value : [];
   }
 
   /* ============================================================
@@ -310,9 +326,12 @@
           email: document.getElementById("fEmail").value.trim(),
         },
       };
-      saveLocal(LS_KEYS.perfil, state.perfil);
       modal.close();
       renderPerfil();
+      descargarJSON(FILE_NAMES.perfil, state.perfil);
+      alert(
+        `Se descargó "${FILE_NAMES.perfil}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
+      );
     });
   }
 
@@ -372,18 +391,24 @@
       if (idx >= 0) lista[idx] = datos;
       else lista.push(datos);
 
-      saveLocal(LS_KEYS[tipo], lista);
       modal.close();
       renderGrid(tipo);
+      descargarJSON(FILE_NAMES[tipo], lista);
+      alert(
+        `Se descargó "${FILE_NAMES[tipo]}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
+      );
     });
 
     document.getElementById("btnEliminarProyecto").addEventListener("click", () => {
       const tipo = document.getElementById("pTipo").value;
       const id = document.getElementById("pId").value;
       state[tipo] = state[tipo].filter((it) => it.id !== id);
-      saveLocal(LS_KEYS[tipo], state[tipo]);
       modal.close();
       renderGrid(tipo);
+      descargarJSON(FILE_NAMES[tipo], state[tipo]);
+      alert(
+        `Se descargó "${FILE_NAMES[tipo]}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
+      );
     });
   }
 
