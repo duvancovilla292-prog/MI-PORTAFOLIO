@@ -152,19 +152,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .menu-toggle span{ width: 22px; height: 2px; background: var(--text); display: block; }
 
-.mobile-nav{
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--border);
-  background: var(--surface);
-}
-.mobile-nav a{
-  padding: 14px 24px;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-}
-.mobile-nav a:hover{ text-decoration: none; background: var(--surface-2); }
-
 /* ============ HERO ============ */
 .hero{ padding: 72px 0 88px; }
 
