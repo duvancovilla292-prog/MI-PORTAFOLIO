@@ -89,6 +89,13 @@
     "descripcion": "Plataforma automatizada en n8n y Telegram desarrollada en equipo (Keiler Sebastian Serrano Rosales, Duvan Steven Covilla Rolón y Javier Alfonso Suárez Duarte). Gestiona el ciclo completo de tutorías académicas mediante un enrutador inteligente, registro de usuarios, IA (Google Gemini) para interpretar procesamiento de lenguaje natural en fechas/horarios, asignación automática con tutores, consulta/cancelación de citas, reporte de incidencias y recordatorios automáticos conectados a Google Sheets y notificaciones por correo.",
     "imagen": "https://www.turbodocx.com/images/newsroom/n8n.png",
     "repo": "https://github.com/duvancovilla292-prog/Proyecto-n8n"
+  },
+  {
+    "id": "campus-14",
+    "nombre": "Portafolio Personal Interactivo",
+    "descripcion": "Portafolio web personal desarrollado con arquitectura moderna basada en HTML5, CSS3 y JavaScript Vanilla (ES6+). Cuenta con carga asíncrona de datos mediante archivos JSON locales, diseño responsivo adaptado con variables CSS, modo administrador interactivo protegido con sessionStorage, sistema de respaldo con descarga automática de JSON actualizados y compatibilidad de ejecución local con respaldos embebidos.",
+    "imagen": "IMG/1.png",
+    "repo": "https://github.com/duvancovilla292-prog/MI-PORTAFOLIO"
   }
 
 ]
