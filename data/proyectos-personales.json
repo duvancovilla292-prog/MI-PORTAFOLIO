@@ -12,5 +12,12 @@
     "descripcion": "Bot modular para WhatsApp desarrollado en Python con arquitectura desacoplada. Integra economía virtual, sistema Gacha de colección de personajes, reacciones interactivas de anime y motor de descargas multimedia mediante yt-dlp.",
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTepOAUvsYszrEF9xwx19ECERIldWA3YQIG4PqDBqxrQ&s=10",
     "repo": "https://github.com/duvancovilla292-prog/Proyecto-Ciel"
+  },
+  {
+  "id": "personal-3",
+  "nombre": "PythonPhotos",
+  "descripcion": "Suite modular de automatización multimedia en Python para auditoría de datos, extracción recursiva, organización cronológica, clasificación semántica mediante Gemini API y optimización multihilo de imágenes y videos.",
+  "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTepOAUvsYszrEF9xwx19ECERIldWA3YQIG4PqDBqxrQ&s=10",
+  "repo": "https://github.com/duvancovilla292-prog/PythonPhotos"
   }
 ]
