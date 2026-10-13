@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#080E1E" />
 <title>Mi Portafolio</title>
 <meta name="description" content="Portafolio personal — proyectos de campus y proyectos personales." />
 
@@ -14,8 +15,14 @@
 </head>
 <body>
 
+<!-- Capa decorativa de fondo: aurora de maná (solo CSS, sin interacción) -->
+<div class="mana-bg" aria-hidden="true"></div>
+
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
 <header class="site-header">
   <div class="wrap header-inner">
     <a href="#inicio" class="logo">portafolio<span class="dot">.</span></a>
@@ -34,7 +41,7 @@
       </div>
     </div>
 
-    <button id="btnMenu" class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav-mobile">
+    <button id="btnMenu" class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav-mobile">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -48,12 +55,17 @@
 
 <main id="contenido">
 
-  <!-- HERO -->
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
   <section id="inicio" class="hero">
     <div class="wrap hero-inner">
       <div class="hero-photo">
+        <!-- Aura de maná: halo difuso + anillo giratorio alrededor de la foto -->
+        <span class="aura" aria-hidden="true"></span>
+        <span class="aura-ring" aria-hidden="true"></span>
         <img id="perfilFoto" src="" alt="Foto de perfil" />
-        <button class="edit-btn" data-edit="perfil" hidden>Editar perfil</button>
+        <button class="btn btn-outline btn-small edit-btn" data-edit="perfil" type="button" hidden>Editar perfil</button>
       </div>
       <div class="hero-text">
         <p class="eyebrow-line" id="perfilUbicacion"></p>
@@ -65,25 +77,29 @@
     </div>
   </section>
 
-  <!-- MI PORTAFOLIO -->
+  <!-- ============================================================
+       MI PORTAFOLIO (proyectos de campus)
+       ============================================================ -->
   <section id="portafolio" class="section">
     <div class="wrap">
       <div class="section-head">
         <h2>Mi portafolio</h2>
         <p>Proyectos y actividades desarrolladas durante mi paso por campus.</p>
-        <button class="btn btn-outline edit-btn" data-edit="campus" hidden>+ Agregar proyecto</button>
+        <button class="btn btn-outline edit-btn" data-edit="campus" type="button" hidden>+ Agregar proyecto</button>
       </div>
       <div id="campusGrid" class="card-grid" aria-live="polite"></div>
     </div>
   </section>
 
-  <!-- PROYECTOS PERSONALES -->
+  <!-- ============================================================
+       PROYECTOS PERSONALES
+       ============================================================ -->
   <section id="personales" class="section section-alt">
     <div class="wrap">
       <div class="section-head">
         <h2>Proyectos personales</h2>
         <p>Cosas que he construido por mi cuenta, para aprender y experimentar.</p>
-        <button class="btn btn-outline edit-btn" data-edit="personal" hidden>+ Agregar proyecto</button>
+        <button class="btn btn-outline edit-btn" data-edit="personal" type="button" hidden>+ Agregar proyecto</button>
       </div>
       <div id="personalGrid" class="card-grid" aria-live="polite"></div>
     </div>
@@ -91,6 +107,9 @@
 
 </main>
 
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <p>© <span id="anioActual"></span> <span id="footerNombre">Mi Portafolio</span>. Hecho con HTML, CSS y JavaScript.</p>
@@ -98,7 +117,9 @@
   </div>
 </footer>
 
-<!-- MODAL: LOGIN -->
+<!-- ============================================================
+     MODAL: LOGIN
+     ============================================================ -->
 <dialog id="loginModal" class="modal">
   <form id="loginForm" method="dialog" class="modal-card">
     <h3>Iniciar sesión</h3>
@@ -119,7 +140,9 @@
   </form>
 </dialog>
 
-<!-- MODAL: EDITAR PERFIL -->
+<!-- ============================================================
+     MODAL: EDITAR PERFIL
+     ============================================================ -->
 <dialog id="perfilModal" class="modal">
   <form id="perfilForm" method="dialog" class="modal-card">
     <h3>Editar perfil</h3>
@@ -138,7 +161,10 @@
   </form>
 </dialog>
 
-<!-- MODAL: EDITAR / CREAR PROYECTO -->
+<!-- ============================================================
+     MODAL: EDITAR / CREAR PROYECTO
+     (incluye el nuevo campo opcional "web" → #pWeb)
+     ============================================================ -->
 <dialog id="proyectoModal" class="modal">
   <form id="proyectoForm" method="dialog" class="modal-card">
     <h3 id="proyectoModalTitulo">Proyecto</h3>
@@ -148,9 +174,10 @@
     <label>Descripción <textarea id="pDescripcion" rows="3" required></textarea></label>
     <label>URL de la imagen <input type="text" id="pImagen" placeholder="assets/img/proyecto.jpg" /></label>
     <label>URL del repositorio (GitHub) <input type="text" id="pRepo" required /></label>
+    <label>URL de la Página Web / Demo (Opcional) <input type="url" id="pWeb" placeholder="https://..." /></label>
     <div class="modal-actions modal-actions-split">
       <button type="button" id="btnEliminarProyecto" class="btn btn-danger" hidden>Eliminar</button>
-      <div>
+      <div class="modal-actions-right">
         <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </div>

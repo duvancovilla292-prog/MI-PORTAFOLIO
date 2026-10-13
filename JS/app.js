@@ -23,12 +23,60 @@
     personal: "data/proyectos-personales.json",
   };
 
+  // Etiqueta temática que se muestra en la cabecera de cada "Skill Card"
+  const ETIQUETAS_TIPO = {
+    campus: "Campus",
+    personal: "Personal",
+  };
+
   let state = {
     perfil: null,
     campus: [],
     personal: [],
     isAdmin: false,
   };
+
+  /* ============================================================
+     UTILIDADES
+     ============================================================ */
+
+  /**
+   * Devuelve la URL solo si usa http(s); si no, devuelve "".
+   * Evita que un valor como "javascript:..." termine en un href.
+   */
+  function urlHttpSegura(valor) {
+    const limpio = (valor || "").trim();
+    if (!limpio) return "";
+    try {
+      const u = new URL(limpio);
+      return u.protocol === "http:" || u.protocol === "https:" ? limpio : "";
+    } catch {
+      return "";
+    }
+  }
+
+  /**
+   * Crea un enlace-botón de tarjeta con icono decorativo + texto.
+   */
+  function crearEnlaceCard({ href, clase, icono, texto, etiquetaAria }) {
+    const a = document.createElement("a");
+    a.className = `card-link ${clase}`;
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    if (etiquetaAria) a.setAttribute("aria-label", etiquetaAria);
+
+    const ic = document.createElement("span");
+    ic.className = "icon";
+    ic.setAttribute("aria-hidden", "true");
+    ic.textContent = icono;
+
+    const tx = document.createElement("span");
+    tx.textContent = texto;
+
+    a.append(ic, tx);
+    return a;
+  }
 
   /* ============================================================
      PERSISTENCIA: SOLO JSON, SIN localStorage
@@ -41,6 +89,10 @@
      y el paso final lo haces tú: reemplazar ese archivo dentro de
      /data en tu proyecto/repo y subir el cambio (commit + push).
      No se usa localStorage ni sessionStorage para guardar datos.
+
+     Nota sobre el campo opcional "web": si un proyecto no tiene
+     demo, la clave "web" simplemente no se escribe en el JSON.
+     Los JSON antiguos (sin "web") siguen funcionando igual.
      ============================================================ */
   function descargarJSON(nombreArchivo, datos) {
     const contenido = JSON.stringify(datos, null, 2);
@@ -53,6 +105,14 @@
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
+  }
+
+  // Descarga el JSON y avisa al admin del paso manual final.
+  function guardarYAvisar(nombreArchivo, datos) {
+    descargarJSON(nombreArchivo, datos);
+    alert(
+      `Se descargó "${nombreArchivo}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
+    );
   }
 
   // Si el sitio se abre con doble clic (file://) el navegador bloquea el
@@ -109,10 +169,11 @@
     foto.alt = `Foto de ${p.nombre || "perfil"}`;
     foto.onerror = () => {
       foto.onerror = null;
+      // Placeholder SVG con el azul abisal del tema
       foto.src =
         "data:image/svg+xml;utf8," +
         encodeURIComponent(
-          `<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><rect width='100%' height='100%' fill='%2316253F'/></svg>`
+          "<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><rect width='100%' height='100%' fill='#16253F'/></svg>"
         );
     };
 
@@ -143,12 +204,43 @@
   }
 
   /* ============================================================
-     RENDER: GRIDS DE PROYECTOS
+     RENDER: GRIDS DE PROYECTOS ("Skill Cards")
      ============================================================ */
-  function crearCard(proyecto, tipo) {
+  function crearCard(proyecto, tipo, indice) {
     const card = document.createElement("article");
     card.className = "card";
+    card.dataset.tipo = tipo;
 
+    /* --- Cabecera tipo "Ficha de Análisis del Gran Sabio" --- */
+    const head = document.createElement("header");
+    head.className = "card-head";
+
+    const indexEl = document.createElement("span");
+    indexEl.className = "card-index";
+    indexEl.textContent = `⟡ Análisis Nº ${String(indice + 1).padStart(2, "0")}`;
+
+    const tools = document.createElement("div");
+    tools.className = "card-tools";
+
+    const tag = document.createElement("span");
+    tag.className = "card-tag";
+    tag.textContent = ETIQUETAS_TIPO[tipo] || tipo;
+    tools.appendChild(tag);
+
+    // Botón de edición (solo admin) dentro de la cabecera
+    if (state.isAdmin) {
+      const editBtn = document.createElement("button");
+      editBtn.className = "card-edit";
+      editBtn.type = "button";
+      editBtn.textContent = "Editar";
+      editBtn.setAttribute("aria-label", `Editar proyecto ${proyecto.nombre}`);
+      editBtn.addEventListener("click", () => abrirModalProyecto(tipo, proyecto.id));
+      tools.appendChild(editBtn);
+    }
+
+    head.append(indexEl, tools);
+
+    /* --- Imagen --- */
     const media = document.createElement("div");
     media.className = "card-media";
 
@@ -162,6 +254,7 @@
     };
     media.appendChild(img);
 
+    /* --- Cuerpo --- */
     const body = document.createElement("div");
     body.className = "card-body";
 
@@ -171,24 +264,40 @@
     const p = document.createElement("p");
     p.textContent = proyecto.descripcion;
 
-    const link = document.createElement("a");
-    link.className = "card-link";
-    link.href = proyecto.repo || "#";
-    link.target = "_blank";
-    link.rel = "noopener";
-    link.textContent = "Ver repositorio →";
+    /* --- Zona de enlaces: repo (siempre) + web (condicional) --- */
+    const acciones = document.createElement("div");
+    acciones.className = "card-actions";
 
-    body.append(h3, p, link);
-    card.append(media, body);
+    // a) Código / Repositorio (obligatorio)
+    acciones.appendChild(
+      crearEnlaceCard({
+        href: urlHttpSegura(proyecto.repo) || "#",
+        clase: "card-link--code",
+        icono: "⟨/⟩",
+        texto: "Código / Repositorio",
+        etiquetaAria: `Ver código del proyecto ${proyecto.nombre}`,
+      })
+    );
 
-    if (state.isAdmin) {
-      const editBtn = document.createElement("button");
-      editBtn.className = "card-edit";
-      editBtn.type = "button";
-      editBtn.textContent = "Editar";
-      editBtn.addEventListener("click", () => abrirModalProyecto(tipo, proyecto.id));
-      card.appendChild(editBtn);
+    // b) Página Web / Ver Demo (SOLO si "web" existe y no está vacío).
+    //    Si no hay web, este nodo no se crea y no aparece en el DOM.
+    if (proyecto.web && proyecto.web.trim() !== "") {
+      const webUrl = urlHttpSegura(proyecto.web);
+      if (webUrl) {
+        acciones.appendChild(
+          crearEnlaceCard({
+            href: webUrl,
+            clase: "card-link--web",
+            icono: "✦",
+            texto: "Página Web / Ver Demo",
+            etiquetaAria: `Ver demo en vivo de ${proyecto.nombre}`,
+          })
+        );
+      }
     }
+
+    body.append(h3, p, acciones);
+    card.append(head, media, body);
 
     return card;
   }
@@ -210,7 +319,7 @@
       return;
     }
 
-    datos.forEach((proyecto) => grid.appendChild(crearCard(proyecto, tipo)));
+    datos.forEach((proyecto, i) => grid.appendChild(crearCard(proyecto, tipo, i)));
   }
 
   function renderTodo() {
@@ -328,10 +437,7 @@
       };
       modal.close();
       renderPerfil();
-      descargarJSON(FILE_NAMES.perfil, state.perfil);
-      alert(
-        `Se descargó "${FILE_NAMES.perfil}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
-      );
+      guardarYAvisar(FILE_NAMES.perfil, state.perfil);
     });
   }
 
@@ -353,10 +459,11 @@
       document.getElementById("pDescripcion").value = proyecto.descripcion;
       document.getElementById("pImagen").value = proyecto.imagen || "";
       document.getElementById("pRepo").value = proyecto.repo || "";
+      document.getElementById("pWeb").value = proyecto.web || ""; // campo opcional
       btnEliminar.hidden = false;
     } else {
       titulo.textContent = "Nuevo proyecto";
-      document.getElementById("proyectoForm").reset();
+      document.getElementById("proyectoForm").reset(); // también limpia #pWeb
       btnEliminar.hidden = true;
     }
 
@@ -378,7 +485,14 @@
       const tipo = document.getElementById("pTipo").value;
       const id = document.getElementById("pId").value;
 
+      const lista = state[tipo];
+      const idx = lista.findIndex((it) => it.id === id);
+      const existente = idx >= 0 ? lista[idx] : {};
+
+      // Se parte del objeto existente para no perder campos que el
+      // formulario no maneja (compatibilidad hacia adelante).
       const datos = {
+        ...existente,
         id: id || `${tipo}-${Date.now()}`,
         nombre: document.getElementById("pNombre").value.trim(),
         descripcion: document.getElementById("pDescripcion").value.trim(),
@@ -386,29 +500,29 @@
         repo: document.getElementById("pRepo").value.trim(),
       };
 
-      const lista = state[tipo];
-      const idx = lista.findIndex((it) => it.id === id);
+      // Campo opcional "web": solo se guarda si es una URL http(s) válida.
+      // Si queda vacío, se elimina la clave para mantener el JSON limpio.
+      const web = urlHttpSegura(document.getElementById("pWeb").value);
+      if (web) datos.web = web;
+      else delete datos.web;
+
       if (idx >= 0) lista[idx] = datos;
       else lista.push(datos);
 
       modal.close();
       renderGrid(tipo);
-      descargarJSON(FILE_NAMES[tipo], lista);
-      alert(
-        `Se descargó "${FILE_NAMES[tipo]}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
-      );
+      guardarYAvisar(FILE_NAMES[tipo], lista);
     });
 
     document.getElementById("btnEliminarProyecto").addEventListener("click", () => {
+      if (!confirm("¿Eliminar este proyecto? Esta acción generará un JSON sin él.")) return;
+
       const tipo = document.getElementById("pTipo").value;
       const id = document.getElementById("pId").value;
       state[tipo] = state[tipo].filter((it) => it.id !== id);
       modal.close();
       renderGrid(tipo);
-      descargarJSON(FILE_NAMES[tipo], state[tipo]);
-      alert(
-        `Se descargó "${FILE_NAMES[tipo]}" actualizado.\nReemplaza el archivo dentro de /data en tu proyecto y sube el cambio para que quede permanente.`
-      );
+      guardarYAvisar(FILE_NAMES[tipo], state[tipo]);
     });
   }
 
