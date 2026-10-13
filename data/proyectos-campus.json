@@ -39,7 +39,8 @@
     "nombre": "EcoMarket - Plataforma Web Sostenible",
     "descripcion": "Plataforma de comercio electrónico orientada a la promoción de un estilo de vida consciente y respetuoso con el medio ambiente. Cuenta con catálogo dinámico, diseño responsivo y arquitectura CSS modular.",
     "imagen": "https://play-lh.googleusercontent.com/r78A214-lqCykzf5Zlq41YtDKaJR6letRDJ6l7iTzdv3RmpyEHdMidGYHAO3WnsROC63cKdQhiUu5q29EbrKP1I",
-    "repo": "https://github.com/duvancovilla292-prog/Proyecto-HTML-Covilla"
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-HTML-Covilla",
+    "web": "https://6a288a82e11767ec47cacf7d--htmlproyeciel.netlify.app"
   },
   {
     "id": "campus-7",
@@ -53,14 +54,16 @@
     "nombre": "EventPass - Plataforma de Gestión y Venta de Entradas",
     "descripcion": "Aplicación web interactiva de gestión y venta de entradas a eventos musicales y espectáculos. Cuenta con catálogo dinámico, filtros en tiempo real, carrito de compras con persistencia en LocalStorage, programación asíncrona (Fetch API), Web Components, eventos personalizados y un panel administrativo completo.",
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFr0OnsqNMyvLdMPa9SWE-3pC-FnigUgi0YN9Qp649puGkr_UvcG0vQzg&s=10",
-    "repo": "https://github.com/duvancovilla292-prog/Proyecto-javascript"
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-javascript",
+    "web": "https://duvancovilla292-prog.github.io/Proyecto-javascript/"
   },
   {
     "id": "campus-9",
     "nombre": "EventPass - Módulo de Gestión Dinámica de Ciudades (Evaluación)",
     "descripcion": "Extensión avanzada para EventPass enfocada en la evaluación práctica. Implementa un CRUD completo de ciudades operativas integrado con LocalStorage, actualización dinámica de selects en tiempo real para clientes y administradores, inyección programática de estilos y modales interactivos con JavaScript moderno (ES6).",
     "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFr0OnsqNMyvLdMPa9SWE-3pC-FnigUgi0YN9Qp649puGkr_UvcG0vQzg&s=10",
-    "repo": "https://github.com/duvancovilla292-prog/evaluacion-javascript"
+    "repo": "https://github.com/duvancovilla292-prog/evaluacion-javascript",
+    "web": "https://duvancovilla292-prog.github.io/evaluacion-javascript/"
   },
   {
     "id": "campus-10",
@@ -95,14 +98,15 @@
     "nombre": "Portafolio Personal Interactivo",
     "descripcion": "Portafolio web personal desarrollado con arquitectura moderna basada en HTML5, CSS3 y JavaScript Vanilla (ES6+). Cuenta con carga asíncrona de datos mediante archivos JSON locales, diseño responsivo adaptado con variables CSS, modo administrador interactivo protegido con sessionStorage, sistema de respaldo con descarga automática de JSON actualizados y compatibilidad de ejecución local con respaldos embebidos.",
     "imagen": "IMG/1.png",
-    "repo": "https://github.com/duvancovilla292-prog/MI-PORTAFOLIO"
+    "repo": "https://github.com/duvancovilla292-prog/MI-PORTAFOLIO",
+    "web": "https://duvancovilla292-prog.github.io/MI-PORTAFOLIO/"
   },
   {
-  "id": "campus-15",
-  "nombre": "Examen MySQL I — Consultas y Modelado Relacional",
-  "descripcion": "Desarrollo completo de examen práctico de bases de datos relacionales en MySQL, estructurado en carpetas que incluyen diagramas conceptuales, lógicos y físicos, scripts DDL/DML para la creación y población de tablas, y una suite de consultas SQL complejas utilizando JOINs, funciones de agregación (COUNT, SUM, AVG), agrupamientos (GROUP BY), filtros avanzados (HAVING, WHERE, COALESCE) y ordenamiento con limitación.",
-  "imagen": "https://www.esepestudio.com/archivos/image/_noticias/medias/mysql.gif",
-  "repo": "https://github.com/duvancovilla292-prog/Examen-Mysql"
+    "id": "campus-15",
+    "nombre": "Examen MySQL I — Consultas y Modelado Relacional",
+    "descripcion": "Desarrollo completo de examen práctico de bases de datos relacionales en MySQL, estructurado en carpetas que incluyen diagramas conceptuales, lógicos y físicos, scripts DDL/DML para la creación y población de tablas, y una suite de consultas SQL complejas utilizando JOINs, funciones de agregación (COUNT, SUM, AVG), agrupamientos (GROUP BY), filtros avanzados (HAVING, WHERE, COALESCE) y ordenamiento con limitación.",
+    "imagen": "https://www.esepestudio.com/archivos/image/_noticias/medias/mysql.gif",
+    "repo": "https://github.com/duvancovilla292-prog/Examen-Mysql"
   },
   {
     "id": "campus-16",
@@ -123,7 +127,7 @@
     "nombre": "Casino Campus — Simulador Educativo Multijugador",
     "descripcion": "Simulador interactivo de casino y juegos de mesa multijugador en tiempo real desarrollado con HTML, CSS, JavaScript Vanilla y sincronización mediante Firebase Realtime Database. Cuenta con más de 20 juegos tradicionales y casuales, mesas compartidas con asientos, herramientas dinámicas de sorteo con animaciones personalizadas, panel de administración con control de host y pasarela de progresos sociales.",
     "imagen": "IMG/ca.png",
-    "repo": "https://github.com/duvancovilla292-prog/CampusCasino-Ingles"
+    "repo": "https://github.com/duvancovilla292-prog/CampusCasino-Ingles",
+    "web": "https://duvancovilla292-prog.github.io/CampusCasino-Ingles/?room=3G58RX"
   }
-
 ]
