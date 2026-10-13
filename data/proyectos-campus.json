@@ -103,6 +103,27 @@
   "descripcion": "Desarrollo completo de examen práctico de bases de datos relacionales en MySQL, estructurado en carpetas que incluyen diagramas conceptuales, lógicos y físicos, scripts DDL/DML para la creación y población de tablas, y una suite de consultas SQL complejas utilizando JOINs, funciones de agregación (COUNT, SUM, AVG), agrupamientos (GROUP BY), filtros avanzados (HAVING, WHERE, COALESCE) y ordenamiento con limitación.",
   "imagen": "https://www.esepestudio.com/archivos/image/_noticias/medias/mysql.gif",
   "repo": "https://github.com/duvancovilla292-prog/Examen-Mysql"
+  },
+  {
+    "id": "campus-16",
+    "nombre": "Gestión de Coworking y Oficinas Compartidas (Base de Datos Integral)",
+    "descripcion": "Sistema integral de base de datos relacional en MySQL 8.0 para la administración completa de un coworking. Incluye un modelo normalizado de 18 tablas, 20 funciones almacenadas, 20 procedimientos con control de transacciones, 20 triggers para integridad y auditoría, 20 eventos programados y un esquema de seguridad basado en roles.",
+    "imagen": "https://www.esepestudio.com/archivos/image/_noticias/medias/mysql.gif",
+    "repo": "https://github.com/duvancovilla292-prog/Proyecto-MySQL-II"
+  },
+  {
+    "id": "campus-17",
+    "nombre": "Examen MySQL I — Gestión de Coworking (Dashboard y Casos Prácticos)",
+    "descripcion": "Desarrollo de examen práctico en MySQL estructurado en consultas analíticas y vistas avanzadas, incluyendo la vista VW_EstadoEspacios para control en tiempo real de ocupación y próximas reservas mediante CASE, el procedimiento sp_GenerarReporteDiario con subconsultas y variables de fecha, y consultas optimizadas con funciones de agregación y manipulación de cadenas.",
+    "imagen": "https://www.esepestudio.com/archivos/image/_noticias/medias/mysql.gif",
+    "repo": "https://github.com/duvancovilla292-prog/Examen-MySQL-II-"
+  },
+  {
+    "id": "campus-18",
+    "nombre": "Casino Campus — Simulador Educativo Multijugador",
+    "descripcion": "Simulador interactivo de casino y juegos de mesa multijugador en tiempo real desarrollado con HTML, CSS, JavaScript Vanilla y sincronización mediante Firebase Realtime Database. Cuenta con más de 20 juegos tradicionales y casuales, mesas compartidas con asientos, herramientas dinámicas de sorteo con animaciones personalizadas, panel de administración con control de host y pasarela de progresos sociales.",
+    "imagen": "https://www.magnific.com/es/fotos-vectores-gratis/elementos-ingles",
+    "repo": "https://github.com/duvancovilla292-prog/CampusCasino-Ingles"
   }
 
 ]
