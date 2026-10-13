@@ -122,7 +122,7 @@
     "id": "campus-18",
     "nombre": "Casino Campus — Simulador Educativo Multijugador",
     "descripcion": "Simulador interactivo de casino y juegos de mesa multijugador en tiempo real desarrollado con HTML, CSS, JavaScript Vanilla y sincronización mediante Firebase Realtime Database. Cuenta con más de 20 juegos tradicionales y casuales, mesas compartidas con asientos, herramientas dinámicas de sorteo con animaciones personalizadas, panel de administración con control de host y pasarela de progresos sociales.",
-    "imagen": <img width="1179" height="898" alt="image" src="https://github.com/user-attachments/assets/8a734112-7fad-44d7-aaa3-24750be02d56" />,
+    "imagen": "https://github.com/duvancovilla292-prog/MI-PORTAFOLIO/blob/main/IMG/ca.png",
     "repo": "https://github.com/duvancovilla292-prog/CampusCasino-Ingles"
   }
 
