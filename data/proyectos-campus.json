@@ -70,7 +70,8 @@
     "nombre": "Express Bite - Ecosistema Comercial y Panel de Inteligencia de Negocio",
     "descripcion": "Plataforma web orientada a la gestión comercial y analítica de datos en tiempo real. Integra una tienda pública con carrito modal y pedidos por WhatsApp, junto con un panel administrativo avanzado que calcula KPIs de ventas, márgenes de rentabilidad, alertas de inventario crítico y proyecciones de demanda mediante JavaScript moderno (ES6).",
     "imagen": "https://pbs.twimg.com/profile_images/1061244639703982080/xXTj9vj3_400x400.jpg",
-    "repo": "https://github.com/duvancovilla292-prog/IA-Javascript"
+    "repo": "https://github.com/duvancovilla292-prog/IA-Javascript",
+    "web": "https://duvancovilla292-prog.github.io/IA-Javascript/"
   },
   {
     "id": "campus-11",
