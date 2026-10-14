@@ -4,7 +4,8 @@
     "nombre": "Morse Ciel",
     "descripcion": "Single Page Application (SPA) en Vanilla JS para el aprendizaje algorítmico del código Morse. Integra Web Audio API para síntesis de sonido nativa sin dependencias externas.",
     "imagen": "https://github.com/user-attachments/assets/073b4980-1a01-41a9-ac50-17dc8868eee5",
-    "repo": "https://github.com/duvancovilla292-prog/Morce-Ciel"
+    "repo": "https://github.com/duvancovilla292-prog/Morce-Ciel",
+    "web": "https://duvancovilla292-prog.github.io/Morce-Ciel/"
   },
   {
     "id": "personal-2",
