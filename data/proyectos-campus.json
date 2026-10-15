@@ -130,5 +130,12 @@
     "imagen": "IMG/ca.png",
     "repo": "https://github.com/duvancovilla292-prog/CampusCasino-Ingles",
     "web": "https://duvancovilla292-prog.github.io/CampusCasino-Ingles/?room=3G58RX"
+  },
+  {
+    "id": "campus-1792100052398",
+    "nombre": "Prueba-Java",
+    "descripcion": "son las clases de java",
+    "imagen": "",
+    "repo": "https://github.com/duvancovilla292-prog/Prueva-Java.git"
   }
 ]
