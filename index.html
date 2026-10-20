@@ -28,18 +28,23 @@
      ============================================================ -->
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#inicio" class="logo">portafolio<span class="dot">.</span></a>
+    <a href="#inicio" class="logo translatable">portafolio<span class="dot">.</span></a>
 
     <nav class="main-nav" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#portafolio">Mi portafolio</a>
-      <a href="#personales">Proyectos personales</a>
+      <a class="translatable" href="#inicio">Inicio</a>
+      <a class="translatable" href="#portafolio">Mi portafolio</a>
+      <a class="translatable" href="#personales">Proyectos personales</a>
     </nav>
 
     <div class="header-actions">
       <button id="btnLogin" class="btn btn-ghost" type="button">Iniciar sesión</button>
       <div id="adminBar" class="admin-bar" hidden>
         <span class="admin-pill">Modo admin</span>
+        <label class="aetheri-switch" for="toggleAetheri" title="Alternar lenguaje Aetheri">
+          <input type="checkbox" id="toggleAetheri" role="switch" />
+          <span class="aetheri-track" aria-hidden="true"></span>
+          <span class="aetheri-label">Aetheri</span>
+        </label>
         <button id="btnLogout" class="btn btn-ghost btn-small" type="button">Salir</button>
       </div>
     </div>
@@ -50,9 +55,9 @@
   </div>
 
   <nav id="main-nav-mobile" class="mobile-nav" aria-label="Navegación móvil" hidden>
-    <a href="#inicio">Inicio</a>
-    <a href="#portafolio">Mi portafolio</a>
-    <a href="#personales">Proyectos personales</a>
+    <a class="translatable" href="#inicio">Inicio</a>
+    <a class="translatable" href="#portafolio">Mi portafolio</a>
+    <a class="translatable" href="#personales">Proyectos personales</a>
   </nav>
 </header>
 
@@ -71,10 +76,10 @@
         <button class="btn btn-outline btn-small edit-btn" data-edit="perfil" type="button" hidden>Editar perfil</button>
       </div>
       <div class="hero-text">
-        <p class="eyebrow-line" id="perfilUbicacion"></p>
-        <h1 id="perfilNombre">—</h1>
-        <p class="hero-role" id="perfilRol">—</p>
-        <p class="hero-desc" id="perfilDescripcion">—</p>
+        <p class="eyebrow-line translatable" id="perfilUbicacion"></p>
+        <h1 id="perfilNombre" class="translatable">—</h1>
+        <p class="hero-role translatable" id="perfilRol">—</p>
+        <p class="hero-desc translatable" id="perfilDescripcion">—</p>
         <div class="hero-links" id="perfilRedes"></div>
       </div>
     </div>
@@ -86,8 +91,8 @@
   <section id="portafolio" class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2>Mi portafolio</h2>
-        <p>Proyectos y actividades desarrolladas durante mi paso por campus.</p>
+        <h2 class="translatable">Mi portafolio</h2>
+        <p class="translatable">Proyectos y actividades desarrolladas durante mi paso por campus.</p>
         <button class="btn btn-outline edit-btn" data-edit="campus" type="button" hidden>+ Agregar proyecto</button>
       </div>
       <div id="campusGrid" class="card-grid" aria-live="polite"></div>
@@ -100,8 +105,8 @@
   <section id="personales" class="section section-alt">
     <div class="wrap">
       <div class="section-head">
-        <h2>Proyectos personales</h2>
-        <p>Cosas que he construido por mi cuenta, para aprender y experimentar.</p>
+        <h2 class="translatable">Proyectos personales</h2>
+        <p class="translatable">Cosas que he construido por mi cuenta, para aprender y experimentar.</p>
         <button class="btn btn-outline edit-btn" data-edit="personal" type="button" hidden>+ Agregar proyecto</button>
       </div>
       <div id="personalGrid" class="card-grid" aria-live="polite"></div>
