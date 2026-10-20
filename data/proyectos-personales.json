@@ -20,5 +20,13 @@
   "descripcion": "Suite modular de automatización multimedia en Python para auditoría de datos, extracción recursiva, organización cronológica, clasificación semántica mediante Gemini API y optimización multihilo de imágenes y videos.",
   "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTepOAUvsYszrEF9xwx19ECERIldWA3YQIG4PqDBqxrQ&s=10",
   "repo": "https://github.com/duvancovilla292-prog/PythonPhotos"
+  },
+  {
+    "id": "personal-4",
+    "nombre": "Motor Genealógico (GenCiel)",
+    "descripcion": "Motor genealógico interactivo en Vanilla JS y SVG con soporte para sincronización en tiempo real mediante Firebase, gestos táctiles unificados, auto-organización de ramas, minimapa de navegación y exportación de datos.",
+    "imagen": "https://github.com/user-attachments/assets/e90ce2da-5cb1-48ea-938d-cc05d6feb4b2",
+    "repo": "https://github.com/duvancovilla292-prog/GenCiel.git",
+    "web": "https://duvancovilla292-prog.github.io/GenCiel/"
   }
 ]
