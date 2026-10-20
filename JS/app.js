@@ -8,6 +8,8 @@
   const ADMIN_PASS = "123456"; // Demo / temporal. Cambiar antes de producción real.
 
   const SS_ADMIN = "portafolio:isAdmin";
+  const LS_AETHERI = "portafolio:aetheri"; // "1" = activado, "0" = desactivado
+  const CLASE_AETHERI = "aetheri-on";
 
   // Nombres de archivo reales dentro de /data, usados solo para nombrar
   // la descarga cuando el admin guarda cambios (ver descargarJSON).
@@ -28,6 +30,9 @@
     campus: "Campus",
     personal: "Personal",
   };
+
+  // Aplica la preferencia guardada antes de que cargue el resto del DOM
+  document.documentElement.classList.toggle(CLASE_AETHERI, leerAetheri());
 
   let state = {
     perfil: null,
@@ -76,6 +81,47 @@
 
     a.append(ic, tx);
     return a;
+  }
+
+  /* ============================================================
+     LENGUAJE AETHERI
+     La preferencia vive en localStorage. La clase "aetheri-on" se
+     aplica sobre <html> y el CSS cambia la fuente de todos los
+     elementos con la clase .translatable.
+     ============================================================ */
+  function leerAetheri() {
+    try {
+      return localStorage.getItem(LS_AETHERI) === "1";
+    } catch {
+      return false;
+    }
+  }
+
+  function aplicarAetheri(activo, { persistir = false } = {}) {
+    document.documentElement.classList.toggle(CLASE_AETHERI, activo);
+
+    const toggle = document.getElementById("toggleAetheri");
+    if (toggle) toggle.checked = activo;
+
+    if (persistir) {
+      try {
+        localStorage.setItem(LS_AETHERI, activo ? "1" : "0");
+      } catch {
+        /* almacenamiento no disponible: el cambio aplica solo en esta carga */
+      }
+    }
+  }
+
+  function initAetheri() {
+    const toggle = document.getElementById("toggleAetheri");
+    toggle.addEventListener("change", () => aplicarAetheri(toggle.checked, { persistir: true }));
+
+    // Mantiene sincronizadas otras pestañas abiertas
+    window.addEventListener("storage", (e) => {
+      if (e.key === LS_AETHERI) aplicarAetheri(e.newValue === "1");
+    });
+
+    aplicarAetheri(leerAetheri());
   }
 
   /* ============================================================
@@ -216,7 +262,7 @@
     head.className = "card-head";
 
     const indexEl = document.createElement("span");
-    indexEl.className = "card-index";
+    indexEl.className = "card-index translatable";
     indexEl.textContent = `⟡ Análisis Nº ${String(indice + 1).padStart(2, "0")}`;
 
     const tools = document.createElement("div");
@@ -259,9 +305,11 @@
     body.className = "card-body";
 
     const h3 = document.createElement("h3");
+    h3.className = "translatable";
     h3.textContent = proyecto.nombre;
 
     const p = document.createElement("p");
+    p.className = "translatable";
     p.textContent = proyecto.descripcion;
 
     /* --- Zona de enlaces: repo (siempre) + web (condicional) --- */
@@ -535,6 +583,7 @@
     initMenuMovil();
     initCierreModales();
     initLogin();
+    initAetheri();
     initEdicionPerfil();
     initEdicionProyectos();
 
