@@ -15,6 +15,20 @@
     12. Responsive
    ========================================================================== */
 
+/* ============ 0. FUENTE AETHERI ============
+   Archivos ubicados en la raíz del proyecto (junto a index.html).
+   La ruta es relativa a este CSS, por eso sube un nivel (../).
+   La fuente solo cubre letras, tildes y ¡¿!?; el resto de caracteres
+   (números, puntuación) cae automáticamente a la fuente normal. */
+@font-face{
+  font-family: "Aetheri";
+  src: url("../Prueva-Regular.otf") format("opentype"),
+       url("../Prueva-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============ 1. TOKENS ============ */
 :root{
   /* Fondos (azul noche / abisal) */
@@ -59,6 +73,7 @@
   /* Tipografía */
   --font-head: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
+  --font-aetheri: "Aetheri", var(--font-body);
 
   /* Forma y movimiento */
   --radius: 14px;
@@ -301,6 +316,57 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   box-shadow: 0 0 16px rgba(74, 222, 128, 0.45);
 }
 .admin-pill::before{ content: "✦"; font-size: .7rem; }
+
+/* Switch Aetheri (Modo admin) */
+.aetheri-switch{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+.aetheri-switch input{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.aetheri-track{
+  position: relative;
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(148, 169, 198, 0.25);
+  border: 1px solid var(--glass-border);
+  transition: var(--ease);
+}
+.aetheri-track::after{
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: var(--ease);
+}
+.aetheri-switch input:checked + .aetheri-track{
+  background: var(--grad-primary);
+  box-shadow: var(--glow-sm);
+}
+.aetheri-switch input:checked + .aetheri-track::after{ transform: translateX(16px); }
+.aetheri-switch input:focus-visible + .aetheri-track{ outline: 2px solid var(--slime); outline-offset: 2px; }
+.aetheri-switch input:checked ~ .aetheri-label{ color: var(--slime); }
+
+/* Lenguaje Aetheri: se activa con la clase .aetheri-on en <html> */
+html.aetheri-on .translatable{
+  font-family: var(--font-aetheri);
+  letter-spacing: .02em;
+}
 
 .menu-toggle{
   display: none;
@@ -800,6 +866,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 480px){
   .header-actions .btn-ghost{ padding: .5rem .8rem; font-size: .82rem; }
   .admin-pill{ display: none; }
+  .aetheri-label{ display: none; }
   .hero{ padding: 52px 0 60px; }
   .section{ padding: 56px 0; }
   .card-grid{ grid-template-columns: 1fr; }
