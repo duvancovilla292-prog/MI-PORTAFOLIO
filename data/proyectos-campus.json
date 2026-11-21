@@ -135,7 +135,21 @@
     "id": "campus-19",
     "nombre": "Prueba-Java",
     "descripcion": "son las clases de java",
-    "imagen": "",
+    "imagen": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     "repo": "https://github.com/duvancovilla292-prog/Prueva-Java.git"
+  },
+  {
+    "id": "campus-20",
+    "nombre": "Reto 1 — Feria de Talleres Culturales",
+    "descripcion": "Aplicación de consola en Java (JDK 17/21, sin librerías externas) para registrar talleres presenciales y virtuales, controlar cupos y resumir la asistencia de cinco días. Aplica programación orientada a objetos con clase abstracta, herencia y polimorfismo (sin if por modalidad), interfaz Ficha, clase genérica Evidencia<T>, ArrayList y arreglos, con validaciones encapsuladas, diagramas UML inicial y final y 74 pruebas de escenario documentadas.",
+    "imagen": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "repo": "https://github.com/duvancovilla292-prog/reto-1-java-"
+  },
+  {
+    "id": "campus-21",
+    "nombre": "CarMotors — Sistema de Gestión para Taller Automotriz",
+    "descripcion": "Sistema de gestión de taller por consola desarrollado en equipo (Grupo 02) con Java 17, MySQL 8 y JDBC. Arquitectura en capas (Vista, Controlador, Servicio, DAO y Modelo) con patrones Singleton, DAO, Builder, Facade, State, Strategy, Observer, Command y Template Method, y principios SOLID. Gestiona inventario con trazabilidad de lotes y alertas de stock mínimo, órdenes de servicio con ciclo de vida y reserva de repuestos, clientes con historial de vehículos, proveedores con evaluación de desempeño, facturación en texto plano con IVA y reportes gerenciales con Lambdas y Streams.",
+    "imagen": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "repo": "https://github.com/duvancovilla292-prog/proyecto-java-grupo02"
   }
 ]
