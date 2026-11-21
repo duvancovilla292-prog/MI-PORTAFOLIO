@@ -134,7 +134,7 @@
   {
     "id": "campus-19",
     "nombre": "Prueba-Java",
-    "descripcion": "son las clases de java",
+    "descripcion": "Repositorio de clases y prácticas de Java organizado por módulos: fundamentos del lenguaje, programación orientada a objetos y estructuras de datos, principios SOLID y patrones de diseño, concurrencia, persistencia de datos y expresiones lambda con Stream API.",
     "imagen": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     "repo": "https://github.com/duvancovilla292-prog/Prueva-Java.git"
   },
