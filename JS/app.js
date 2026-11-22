@@ -168,7 +168,7 @@
   // se usa el archivo /data/*.json vía fetch, que es la fuente de verdad.
   async function fetchJSON(url, fallbackId) {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) throw new Error(`No se pudo cargar ${url}`);
       return await res.json();
     } catch (err) {
