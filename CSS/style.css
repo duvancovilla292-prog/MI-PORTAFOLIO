@@ -872,3 +872,25 @@ html.aetheri-on .translatable{
   .card-grid{ grid-template-columns: 1fr; }
   .modal-card{ padding: 22px; }
 }
+
+/* ===== Fix: evitar desbordamiento horizontal en celular ===== */
+html{ overflow-x: hidden; }
+body{ max-width: 100%; overflow-x: clip; }
+.mana-bg{ overflow: hidden; }
+
+.hero-inner > *{ min-width: 0; }
+.hero-text h1{ overflow-wrap: anywhere; }
+
+.card-grid{ grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr)); }
+.card-grid > *{ min-width: 0; }
+.card{ min-width: 0; max-width: 100%; }
+.card-body{ min-width: 0; }
+.card-body h3, .card-body p{ overflow-wrap: anywhere; }
+.card-media img{ min-width: 0; }
+
+@media (max-width: 860px){
+  .hero-inner{ grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px){
+  .card-grid{ grid-template-columns: minmax(0, 1fr); }
+}
