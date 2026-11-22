@@ -28,5 +28,12 @@
     "imagen": "https://github.com/user-attachments/assets/e90ce2da-5cb1-48ea-938d-cc05d6feb4b2",
     "repo": "https://github.com/duvancovilla292-prog/GenCiel.git",
     "web": "https://duvancovilla292-prog.github.io/GenCiel/"
+  },
+  {
+    "id": "personal-5",
+    "nombre": "Daily Hub",
+    "descripcion": "Aplicación web personal de productividad (SPA) en HTML, CSS y JavaScript puro, sin dependencias. Integra calendario mensual, tareas con prioridad, notas de texto y de lista, cumpleaños con alertas y horarios diarios, semanales y mensuales con vínculos entre apartados. Persiste en localStorage, con tema claro y oscuro, panel de administrador con respaldo JSON (carga sin duplicados) y tipografía Aetheri.",
+    "imagen": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230f172a'/%3E%3Cstop offset='100%25' stop-color='%231e1b4b'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='160' height='100' fill='url(%23g1)'/%3E%3Cg transform='translate(40 10) scale(2.5)'%3E%3Crect x='8' y='8.5' width='16' height='16' rx='3' fill='none' stroke='%2338bdf8' stroke-width='2.4'/%3E%3Cline x1='12.5' y1='6.5' x2='12.5' y2='10' stroke='%2338bdf8' stroke-width='2.4' stroke-linecap='round'/%3E%3Cline x1='19.5' y1='6.5' x2='19.5' y2='10' stroke='%2338bdf8' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M12.2 16.8L14.8 19.4L19.8 14.2' fill='none' stroke='%23f8fafc' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='23.5' cy='8.5' r='3.5' fill='url(%23g2)' stroke='%230f172a' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E",
+    "repo": "https://github.com/duvancovilla292-prog/daily-hub-Ciel"
   }
 ]
