@@ -922,9 +922,18 @@ body{ max-width: 100%; overflow-x: clip; }
 .filtro-seg button:hover{ color: var(--text); }
 .filtro-seg button.activo{ background: var(--grad-primary); color: var(--bg-deep); box-shadow: var(--glow-sm); }
 .filtro-seg button:focus-visible{ outline: 2px solid var(--slime); outline-offset: 2px; }
+.filtro-web{
+  border: 1px solid var(--glass-border); background: rgba(8, 14, 30, .55); color: var(--text-muted);
+  font: inherit; font-size: .88rem; font-weight: 600; padding: 12px 14px; border-radius: var(--radius);
+  cursor: pointer; transition: var(--ease); white-space: nowrap;
+}
+.filtro-web:hover{ color: var(--text); border-color: var(--glass-border-hover); }
+.filtro-web.activo{ background: var(--magic-soft); border-color: var(--magic); color: #fff; box-shadow: var(--glow-magic); }
+.filtro-web:focus-visible{ outline: 2px solid var(--slime); outline-offset: 2px; }
 .search-summary{ margin: 10px 4px 0; font-size: .85rem; min-height: 1.2em; }
 .section[hidden]{ display: none; }
 @media (max-width: 480px){
   .filtro-seg{ flex: 1 1 100%; }
   .filtro-seg button{ flex: 1; padding: 8px 6px; }
+  .filtro-web{ flex: 1 1 100%; }
 }

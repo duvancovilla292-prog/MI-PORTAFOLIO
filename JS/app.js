@@ -41,6 +41,7 @@
     isAdmin: false,
     busqueda: "",      // texto del buscador (se compara con el nombre del proyecto)
     filtro: "todos",   // "todos" | "campus" | "personal"
+    soloWeb: false,    // true = solo proyectos con página web / demo
   };
 
   // Minúsculas y sin tildes, para que "programacion" encuentre "Programación"
@@ -359,18 +360,20 @@
     const gridId = tipo === "campus" ? "campusGrid" : "personalGrid";
     const grid = document.getElementById(gridId);
     const datos = state[tipo] || [];
-    const q = normalizar(state.busqueda);
     // Se conserva la posición original para que el "Nº" de cada ficha no cambie al filtrar
     const visibles = datos
       .map((proyecto, i) => ({ proyecto, i }))
-      .filter(({ proyecto }) => !q || normalizar(proyecto.nombre).includes(q));
+      .filter(({ proyecto }) => coincide(proyecto));
 
     grid.innerHTML = "";
 
     if (datos.length > 0 && visibles.length === 0) {
       const vacio = document.createElement("p");
       vacio.className = "empty-state";
-      vacio.textContent = `Ningún proyecto coincide con “${state.busqueda.trim()}”.`;
+      const q = state.busqueda.trim();
+      vacio.textContent = q && state.soloWeb ? `Ningún proyecto con página web coincide con “${q}”.`
+        : q ? `Ningún proyecto coincide con “${q}”.`
+        : "Ningún proyecto de esta sección tiene página web.";
       grid.appendChild(vacio);
       return;
     }
@@ -391,6 +394,15 @@
   /* ============================================================
      BUSCADOR Y FILTRO DE PROYECTOS
      ============================================================ */
+  // ¿El proyecto pasa la búsqueda por nombre y el filtro "con página web"?
+  // (usa la misma regla que la tarjeta para mostrar el botón de la web)
+  function coincide(proyecto) {
+    const q = normalizar(state.busqueda);
+    if (q && !normalizar(proyecto.nombre).includes(q)) return false;
+    if (state.soloWeb && !urlHttpSegura(proyecto.web)) return false;
+    return true;
+  }
+
   function aplicarBusqueda() {
     const f = state.filtro;
     document.getElementById("portafolio").hidden = f === "personal";
@@ -398,10 +410,9 @@
     renderGrid("campus");
     renderGrid("personal");
 
-    const q = normalizar(state.busqueda);
-    const cuenta = (tipo) => (state[tipo] || []).filter((p) => !q || normalizar(p.nombre).includes(q)).length;
+    const cuenta = (tipo) => (state[tipo] || []).filter(coincide).length;
     const total = (f !== "personal" ? cuenta("campus") : 0) + (f !== "campus" ? cuenta("personal") : 0);
-    document.getElementById("buscarResumen").textContent = q
+    document.getElementById("buscarResumen").textContent = normalizar(state.busqueda) || state.soloWeb
       ? (total === 1 ? "1 proyecto encontrado" : `${total} proyectos encontrados`)
       : "";
   }
@@ -422,6 +433,13 @@
         });
         aplicarBusqueda();
       });
+    });
+    const web = document.getElementById("filtroWeb");
+    web.addEventListener("click", () => {
+      state.soloWeb = !state.soloWeb;
+      web.classList.toggle("activo", state.soloWeb);
+      web.setAttribute("aria-pressed", state.soloWeb);
+      aplicarBusqueda();
     });
   }
 
