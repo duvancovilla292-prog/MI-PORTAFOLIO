@@ -894,3 +894,37 @@ body{ max-width: 100%; overflow-x: clip; }
 @media (max-width: 480px){
   .card-grid{ grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ===== Buscador de proyectos + filtro (Todos / Campus / Personales) ===== */
+.search-section{ padding: 48px 0 0; }
+.project-search{
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  padding: 12px; border-radius: var(--radius-lg);
+  background: var(--glass-strong); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+}
+.search-field{
+  flex: 1 1 260px; min-width: 0; display: flex; align-items: center; gap: 10px;
+  padding: 0 14px; border-radius: var(--radius); background: rgba(8, 14, 30, .55);
+  border: 1px solid var(--glass-border); color: var(--text-muted); transition: var(--ease);
+}
+.search-field:focus-within{ border-color: var(--glass-border-hover); box-shadow: var(--glow-sm); color: var(--slime); }
+.search-field input{
+  flex: 1; min-width: 0; padding: 12px 0; border: 0; outline: 0; background: transparent;
+  color: var(--text); font: inherit; font-size: .95rem;
+}
+.search-field input::placeholder{ color: var(--text-muted); }
+.filtro-seg{ display: flex; gap: 4px; padding: 4px; border-radius: var(--radius); background: rgba(8, 14, 30, .55); border: 1px solid var(--glass-border); }
+.filtro-seg button{
+  border: 0; background: transparent; color: var(--text-muted); font: inherit; font-size: .88rem; font-weight: 600;
+  padding: 8px 14px; border-radius: 10px; cursor: pointer; transition: var(--ease); white-space: nowrap;
+}
+.filtro-seg button:hover{ color: var(--text); }
+.filtro-seg button.activo{ background: var(--grad-primary); color: var(--bg-deep); box-shadow: var(--glow-sm); }
+.filtro-seg button:focus-visible{ outline: 2px solid var(--slime); outline-offset: 2px; }
+.search-summary{ margin: 10px 4px 0; font-size: .85rem; min-height: 1.2em; }
+.section[hidden]{ display: none; }
+@media (max-width: 480px){
+  .filtro-seg{ flex: 1 1 100%; }
+  .filtro-seg button{ flex: 1; padding: 8px 6px; }
+}

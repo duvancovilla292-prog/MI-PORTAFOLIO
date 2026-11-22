@@ -39,7 +39,12 @@
     campus: [],
     personal: [],
     isAdmin: false,
+    busqueda: "",      // texto del buscador (se compara con el nombre del proyecto)
+    filtro: "todos",   // "todos" | "campus" | "personal"
   };
+
+  // Minúsculas y sin tildes, para que "programacion" encuentre "Programación"
+  const normalizar = (s) => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 
   /* ============================================================
      UTILIDADES
@@ -354,8 +359,21 @@
     const gridId = tipo === "campus" ? "campusGrid" : "personalGrid";
     const grid = document.getElementById(gridId);
     const datos = state[tipo] || [];
+    const q = normalizar(state.busqueda);
+    // Se conserva la posición original para que el "Nº" de cada ficha no cambie al filtrar
+    const visibles = datos
+      .map((proyecto, i) => ({ proyecto, i }))
+      .filter(({ proyecto }) => !q || normalizar(proyecto.nombre).includes(q));
 
     grid.innerHTML = "";
+
+    if (datos.length > 0 && visibles.length === 0) {
+      const vacio = document.createElement("p");
+      vacio.className = "empty-state";
+      vacio.textContent = `Ningún proyecto coincide con “${state.busqueda.trim()}”.`;
+      grid.appendChild(vacio);
+      return;
+    }
 
     if (datos.length === 0) {
       const vacio = document.createElement("p");
@@ -367,13 +385,49 @@
       return;
     }
 
-    datos.forEach((proyecto, i) => grid.appendChild(crearCard(proyecto, tipo, i)));
+    visibles.forEach(({ proyecto, i }) => grid.appendChild(crearCard(proyecto, tipo, i)));
+  }
+
+  /* ============================================================
+     BUSCADOR Y FILTRO DE PROYECTOS
+     ============================================================ */
+  function aplicarBusqueda() {
+    const f = state.filtro;
+    document.getElementById("portafolio").hidden = f === "personal";
+    document.getElementById("personales").hidden = f === "campus";
+    renderGrid("campus");
+    renderGrid("personal");
+
+    const q = normalizar(state.busqueda);
+    const cuenta = (tipo) => (state[tipo] || []).filter((p) => !q || normalizar(p.nombre).includes(q)).length;
+    const total = (f !== "personal" ? cuenta("campus") : 0) + (f !== "campus" ? cuenta("personal") : 0);
+    document.getElementById("buscarResumen").textContent = q
+      ? (total === 1 ? "1 proyecto encontrado" : `${total} proyectos encontrados`)
+      : "";
+  }
+
+  function initBuscador() {
+    const input = document.getElementById("buscarProyecto");
+    input.addEventListener("input", () => {
+      state.busqueda = input.value;
+      aplicarBusqueda();
+    });
+    document.querySelectorAll(".filtro-seg [data-filtro]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.filtro = btn.dataset.filtro;
+        document.querySelectorAll(".filtro-seg [data-filtro]").forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("activo", on);
+          b.setAttribute("aria-pressed", on);
+        });
+        aplicarBusqueda();
+      });
+    });
   }
 
   function renderTodo() {
     renderPerfil();
-    renderGrid("campus");
-    renderGrid("personal");
+    aplicarBusqueda();
     document.querySelectorAll(".edit-btn").forEach((el) => (el.hidden = !state.isAdmin));
     document.getElementById("adminBar").hidden = !state.isAdmin;
     document.getElementById("btnLogin").hidden = state.isAdmin;
@@ -586,6 +640,7 @@
     initAetheri();
     initEdicionPerfil();
     initEdicionProyectos();
+    initBuscador();
 
     await cargarDatos();
     renderTodo();
