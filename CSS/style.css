@@ -931,6 +931,33 @@ body{ max-width: 100%; overflow-x: clip; }
 .filtro-web.activo{ background: var(--magic-soft); border-color: var(--magic); color: #fff; box-shadow: var(--glow-magic); }
 .filtro-web:focus-visible{ outline: 2px solid var(--slime); outline-offset: 2px; }
 .search-summary{ margin: 10px 4px 0; font-size: .85rem; min-height: 1.2em; }
+
+/* ===== Contador de proyectos (Campus / Personales / Total) ===== */
+.contador-repos{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.contador-item{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  padding: 8px 14px; border-radius: var(--radius);
+  background: rgba(8, 14, 30, .55); border: 1px solid var(--glass-border);
+  color: var(--text-muted); font-size: .85rem; font-weight: 600;
+}
+.contador-item strong{
+  font-family: var(--font-head); font-size: 1.15rem; color: var(--slime);
+  font-variant-numeric: tabular-nums; text-shadow: 0 0 10px rgba(0, 240, 255, .35);
+}
+.contador-total{ border-color: var(--magic); box-shadow: var(--glow-magic); color: var(--text); }
+.contador-total strong{ color: var(--lavender); text-shadow: 0 0 10px var(--magic-soft); }
+/* Insignia con el número de proyectos junto al título de cada sección */
+.section-head h2 .contador-badge{
+  display: inline-block; vertical-align: middle; margin-left: 8px;
+  padding: 2px 10px; border-radius: 999px;
+  font-family: var(--font-head); font-size: .9rem; font-weight: 700; line-height: 1.5;
+  -webkit-text-fill-color: var(--bg-deep); color: var(--bg-deep);
+  background: var(--grad-primary); box-shadow: var(--glow-sm);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 480px){
+  .contador-item{ flex: 1 1 0; justify-content: center; padding: 8px 6px; }
+}
 .section[hidden]{ display: none; }
 @media (max-width: 480px){
   .filtro-seg{ flex: 1 1 100%; }

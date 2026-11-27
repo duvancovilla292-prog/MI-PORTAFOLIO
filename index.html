@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <!-- ?v=… : al cambiar style.css o app.js, sube este número en los dos para que el navegador no use copias viejas -->
-<link rel="stylesheet" href="CSS/style.css?v=20261122a" />
+<link rel="stylesheet" href="CSS/style.css?v=20261127a" />
 </head>
 <body>
 
@@ -103,6 +103,12 @@
         </div>
         <button type="button" id="filtroWeb" class="filtro-web" aria-pressed="false" title="Mostrar solo los proyectos que tienen página web / demo">🌐 Con página web</button>
       </div>
+      <!-- Contador de proyectos: se llena desde app.js (actualizarContadores) -->
+      <div class="contador-repos" aria-label="Cantidad de proyectos">
+        <span class="contador-item"><strong id="contadorCampus">0</strong> Campus</span>
+        <span class="contador-item"><strong id="contadorPersonal">0</strong> Personales</span>
+        <span class="contador-item contador-total"><strong id="contadorTotal">0</strong> Total</span>
+      </div>
       <p id="buscarResumen" class="search-summary" aria-live="polite"></p>
     </div>
   </section>
@@ -113,7 +119,7 @@
   <section id="portafolio" class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="translatable">Mi portafolio</h2>
+        <h2 class="translatable">Mi portafolio <span class="contador-badge" id="badgeCampus">0</span></h2>
         <p class="translatable">Proyectos y actividades desarrolladas durante mi paso por campus.</p>
         <button class="btn btn-outline edit-btn" data-edit="campus" type="button" hidden>+ Agregar proyecto</button>
       </div>
@@ -127,7 +133,7 @@
   <section id="personales" class="section section-alt">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="translatable">Proyectos personales</h2>
+        <h2 class="translatable">Proyectos personales <span class="contador-badge" id="badgePersonal">0</span></h2>
         <p class="translatable">Cosas que he construido por mi cuenta, para aprender y experimentar.</p>
         <button class="btn btn-outline edit-btn" data-edit="personal" type="button" hidden>+ Agregar proyecto</button>
       </div>
@@ -215,6 +221,6 @@
   </form>
 </dialog>
 
-<script src="JS/app.js?v=20261122a"></script>
+<script src="JS/app.js?v=20261127a"></script>
 </body>
 </html>
