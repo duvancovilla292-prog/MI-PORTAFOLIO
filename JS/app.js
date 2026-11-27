@@ -360,6 +360,7 @@
     const gridId = tipo === "campus" ? "campusGrid" : "personalGrid";
     const grid = document.getElementById(gridId);
     const datos = state[tipo] || [];
+    actualizarContadores();
     // Se conserva la posición original para que el "Nº" de cada ficha no cambie al filtrar
     const visibles = datos
       .map((proyecto, i) => ({ proyecto, i }))
@@ -389,6 +390,26 @@
     }
 
     visibles.forEach(({ proyecto, i }) => grid.appendChild(crearCard(proyecto, tipo, i)));
+  }
+
+  /* ============================================================
+     CONTADOR DE PROYECTOS (campus, personales y total)
+     Cuenta todos los proyectos cargados, sin importar el buscador
+     ni los filtros. Se llama en cada render, así que también se
+     actualiza cuando el admin agrega o elimina un proyecto.
+     ============================================================ */
+  function actualizarContadores() {
+    const campus = (state.campus || []).length;
+    const personal = (state.personal || []).length;
+    const poner = (id, valor) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = valor;
+    };
+    poner("contadorCampus", campus);
+    poner("contadorPersonal", personal);
+    poner("contadorTotal", campus + personal);
+    poner("badgeCampus", campus);
+    poner("badgePersonal", personal);
   }
 
   /* ============================================================

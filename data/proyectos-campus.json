@@ -151,5 +151,12 @@
     "descripcion": "Sistema de gestión de taller por consola desarrollado en equipo (Grupo 02) con Java 17, MySQL 8 y JDBC. Arquitectura en capas (Vista, Controlador, Servicio, DAO y Modelo) con patrones Singleton, DAO, Builder, Facade, State, Strategy, Observer, Command y Template Method, y principios SOLID. Gestiona inventario con trazabilidad de lotes y alertas de stock mínimo, órdenes de servicio con ciclo de vida y reserva de repuestos, clientes con historial de vehículos, proveedores con evaluación de desempeño, facturación en texto plano con IVA y reportes gerenciales con Lambdas y Streams.",
     "imagen": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     "repo": "https://github.com/duvancovilla292-prog/proyecto-java-grupo02"
+  },
+  {
+    "id": "campus-22",
+    "nombre": "Examen Java — Exportación de Orden de Servicio (CarMotors)",
+    "descripcion": "Evaluación práctica sobre el sistema CarMotors (Java 17, MySQL 8, JDBC y Maven). Agrega al menú de Gestión de servicios la opción \"Exportar Orden de Servicio\", que con una sola consulta con JOINs y LEFT JOIN (servicios, vehículos, clientes y repuestos) genera el archivo orden_servicio_[ID].txt con los datos del cliente y del vehículo, el detalle de la reparación, la tabla de repuestos con subtotales y el resumen de costos. Respeta la arquitectura en capas del proyecto: vista, controlador, servicio, DAO con su implementación JDBC y modelo propio.",
+    "imagen": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "repo": "https://github.com/duvancovilla292-prog/examen-java-1733"
   }
 ]
